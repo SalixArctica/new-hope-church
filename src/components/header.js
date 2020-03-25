@@ -108,8 +108,13 @@ class Navbar extends React.Component {
         </Title>
         <HamburgerDiv onClick={this.toggleNavbar}>|||</HamburgerDiv>
         <NavLinks open={this.state.navbarExtended}>
-          <Styledli>About</Styledli>
-          <Styledli>Events</Styledli>
+          <Styledli>
+            <StyledLink to="/about">About</StyledLink>
+          </Styledli>
+
+          <Styledli>
+            <StyledLink to="/events">Events</StyledLink>
+          </Styledli>
           <Styledli>Donate</Styledli>
           <Styledli>Contact</Styledli>
         </NavLinks>

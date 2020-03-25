@@ -41,7 +41,6 @@ const StyledBackgroundSection = styled(BackgroundSection)`
   background-position: 20% 20%;
   padding: 0px;
   margin: 0px;
-  background-image: linear-gradient(red, orange);
 `
 
 export default StyledBackgroundSection
