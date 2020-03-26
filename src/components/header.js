@@ -68,6 +68,21 @@ const Styledli = styled.li`
   }
 `
 
+const DonateButton = styled.input`
+  border: none;
+  background: none;
+  display: inline;
+  margin: 0 1rem;
+  vertical-align: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto" sans-serif;
+`
+
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: inherit;
@@ -112,7 +127,20 @@ class Navbar extends React.Component {
           <Styledli>
             <StyledLink to="/events">Events</StyledLink>
           </Styledli>
-          <Styledli>Donate</Styledli>
+          <Styledli>
+            <form
+              action="https://www.paypal.com/cgi-bin/webscr"
+              method="post"
+              target="_top"
+              id="donate"
+              style={{ display: "inline" }}
+            >
+              <input type="hidden" name="cmd" value="_donations" />
+              <input type="hidden" name="business" value="DGZWVGNU55NSN" />
+              <input type="hidden" name="currency_code" value="USD" />
+              <DonateButton type="submit" value="Donate" />
+            </form>
+          </Styledli>
           <Styledli>
             <StyledLink to="/contact">Contact</StyledLink>
           </Styledli>

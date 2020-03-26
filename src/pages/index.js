@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, StaticQuery } from "gatsby"
+import { Link, StaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 
 import Layout from "../components/layout"
@@ -27,6 +27,16 @@ const HeroContainer = styled.div`
 
 const IndexPage = () => (
   <Layout>
+    {console.log(String.raw`
+Developed by:
+ _____              _                     _              
+|_   _|            | |                   | |             
+  | |  __ _  _ __  | | __ ___  __ _  ___ | |_  ___  _ __ 
+  | | / _  ||  _ \ | |/ // __|/ _  |/ __|| __|/ _ \|  __|
+  | || (_| || | | ||   <| (__| (_| |\__ \| |_|  __/| |   
+  \_/ \__,_||_| |_||_|\_\\___|\__,_||___/ \__|\___||_|  
+  https://tankcaster.dev                                                          
+`)}
     <SEO title="Home" />
     <HeroImage>
       <Grid style={{ height: "100%" }}>
@@ -49,13 +59,6 @@ const IndexPage = () => (
               >
                 Donate
               </Button>
-              <img
-                alt=""
-                border="0"
-                src="https://www.paypal.com/en_US/i/scr/pixel.gif"
-                width="1"
-                height="1"
-              />
               <LinkButton to="/about" style={{ display: "inline" }}>
                 Learn more
               </LinkButton>
