@@ -8,15 +8,14 @@ const localizer = momentLocalizer(moment)
 
 class BigCalendar extends Component {
   state = {
-    events: [
-      {
-        start: moment().toDate(),
-        end: moment()
-          .add(1, "days")
-          .toDate(),
-        title: "Some title",
-      },
-    ],
+    events: [{}],
+  }
+
+  componentDidMount = () => {
+    fetch(process.env.GATSBY_API_URL + "/events")
+      .then(res => res.json())
+      .then(events => this.setState({ events: events }))
+      .catch(console.err)
   }
 
   render() {

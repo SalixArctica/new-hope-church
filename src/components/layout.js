@@ -35,15 +35,8 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `-3rem 0 0 0`,
-          padding: `0`,
-        }}
-      >
-        <main>{children}</main>
-        <footer></footer>
-      </div>
+      <main style={{ margin: "-5rem 0 0 0" }}>{children}</main>
+      <footer></footer>
     </>
   )
 }

@@ -8,7 +8,7 @@ const BackgroundSection = props => (
   <StaticQuery
     query={graphql`
       query {
-        desktop: file(relativePath: { eq: "crosses.jpg" }) {
+        desktop: file(relativePath: { eq: "man-reading-bible.jpg" }) {
           childImageSharp {
             fluid(quality: 90, maxWidth: 1920) {
               ...GatsbyImageSharpFluid_withWebp
@@ -41,7 +41,6 @@ const StyledBackgroundSection = styled(BackgroundSection)`
   background-position: 20% 20%;
   padding: 0px;
   margin: 0px;
-  z-index: 0;
 `
 
 export default StyledBackgroundSection

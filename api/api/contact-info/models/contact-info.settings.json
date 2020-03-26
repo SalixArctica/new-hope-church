@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "connection": "default",
+  "collectionName": "contact_infos",
+  "info": {
+    "name": "Contact Info"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Phone": {
+      "type": "biginteger"
+    },
+    "Email": {
+      "type": "email",
+      "required": true
+    },
+    "Address": {
+      "type": "string"
+    }
+  }
+}

@@ -4,20 +4,17 @@ import { Link } from "gatsby"
 
 const Nav = styled.nav`
   margin: 0;
-  background: ${props => (props.scrolled ? "gold" : "transparent")};
+  background: ${props =>
+    props.scrolled ? "gold" : props.open ? "gold" : "transparent"};
   color: white;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
   display: grid;
   grid-template-columns: 1fr 1fr;
-  position: sticky;
+  position: ${props => (props.open ? "absolute" : "sticky")};
   top: 0;
-  z-index: 5;
+  z-index: 2;
   overflow: auto;
   transition: all 0.5s ease-in-out;
-
-  @media only screen and (max-width: 1000px) {
-    position: static;
-  }
 `
 
 const HamburgerDiv = styled.div`
@@ -50,7 +47,7 @@ const NavLinks = styled.ul`
     padding: 0;
     grid-column: 1 / span 2;
     height: ${props => (props.open ? "auto" : "0px")};
-    background: teal;
+    background: gold;
     width: 100%;
   }
 `
@@ -102,7 +99,7 @@ class Navbar extends React.Component {
 
   render() {
     return (
-      <Nav scrolled={this.state.scrolledDown}>
+      <Nav open={this.state.navbarExtended} scrolled={this.state.scrolledDown}>
         <Title>
           <StyledLink to="/">New Hope Church</StyledLink>
         </Title>
@@ -116,7 +113,9 @@ class Navbar extends React.Component {
             <StyledLink to="/events">Events</StyledLink>
           </Styledli>
           <Styledli>Donate</Styledli>
-          <Styledli>Contact</Styledli>
+          <Styledli>
+            <StyledLink to="/contact">Contact</StyledLink>
+          </Styledli>
         </NavLinks>
       </Nav>
     )
