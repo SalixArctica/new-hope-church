@@ -6,31 +6,20 @@ import "react-big-calendar/lib/css/react-big-calendar.css"
 
 const localizer = momentLocalizer(moment)
 
-class BigCalendar extends Component {
-  state = {
-    events: [{}],
-  }
-
-  componentDidMount = () => {
-    fetch(process.env.GATSBY_API_URL + "/events")
-      .then(res => res.json())
-      .then(events => this.setState({ events: events }))
-      .catch(console.err)
-  }
-
-  render() {
-    return (
-      <div>
-        <Calendar
-          localizer={localizer}
-          defaultDate={new Date()}
-          defaultView="month"
-          events={this.state.events}
-          style={{ height: "80vh" }}
-        />
-      </div>
-    )
-  }
-}
+const BigCalendar = props => (
+  <div>
+    <Calendar
+      localizer={localizer}
+      defaultDate={new Date()}
+      defaultView="month"
+      events={props.events}
+      style={{ height: "80vh" }}
+      onSelectEvent={event => {
+        props.flickityRef.select(event.resource)
+        window.scrollTo({ behavior: "smooth", top: 0 })
+      }}
+    />
+  </div>
+)
 
 export default BigCalendar

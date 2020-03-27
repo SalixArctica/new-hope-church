@@ -1,34 +1,82 @@
-import React from "react"
-import { Link } from "gatsby"
+import React, { useState } from "react"
+import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import SEO from "../components/seo"
 
 import Layout from "../components/layout"
-import Hero from "../components/eventsHero"
 import Calendar from "../components/calendar"
+import Flickity from "react-flickity-component"
+import "flickity/css/flickity.css"
+import GradientDiv from "../components/gradientDiv"
 
-const HeroContainer = styled.div`
+const CarouselCell = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  height: 100%;
-  color: white;
-  font-size: 3rem;
+  min-height: 100%;
+  min-width: 100%;
+  background: black;
 `
 
-const aboutPage = props => (
-  <Layout>
-    <SEO title="Events" />
-    <Hero>
-      <HeroContainer>
-        <h1>Event Calendar</h1>
-      </HeroContainer>
-    </Hero>
-    <div style={{ margin: "5rem" }}>
-      <Calendar />
-    </div>
-  </Layout>
-)
+const Carousel = styled(Flickity)`
+  height: 70vh;
+`
 
-export default aboutPage
+const AboutPage = props => {
+  const [flickityRef, setflickityRef] = useState(null)
+
+  const {
+    strapi: { events },
+  } = useStaticQuery(
+    graphql`
+      query GetEvents {
+        strapi {
+          events {
+            description
+            end
+            title
+            start
+            picture {
+              url
+            }
+          }
+        }
+      }
+    `
+  )
+
+  return (
+    <Layout>
+      <SEO title="Events" />
+      <Carousel flickityRef={c => setflickityRef(c)}>
+        {events.map(event => {
+          return (
+            <CarouselCell>
+              <GradientDiv
+                img={
+                  event.picture
+                    ? process.env.GATSBY_API_URL + event.picture.url
+                    : null
+                }
+              >
+                <div>
+                  <h1>{event.title + " " + event.start}</h1>
+                  <p>{event.description}</p>
+                </div>
+              </GradientDiv>
+            </CarouselCell>
+          )
+        })}
+      </Carousel>
+      <div style={{ margin: "5rem" }}>
+        <Calendar
+          events={events.map((event, index) => {
+            return { ...event, resource: index }
+          })}
+          flickityRef={flickityRef}
+        />
+      </div>
+    </Layout>
+  )
+}
+
+export default AboutPage

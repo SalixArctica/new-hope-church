@@ -9,9 +9,10 @@ const GradientDiv = styled.div`
       transparent,
       rgba(235, 186, 52, 1)
     ),
-    url("/images/worshipping-guy.jpg");
+    url(${props => (props.img ? props.img : "/images/worshipping-guy.jpg")});
   background-size: cover;
   background-position: center;
+  height: 70vh;
   margin-left: -5px;
   min-height: 25rem;
 `
@@ -27,15 +28,15 @@ const ContentDiv = styled.div`
 `
 
 const gradientContainer = props => (
-  <Grid>
+  <Grid style={{ height: "100%", width: "100%" }}>
     {props.flip ? (
       <>
         <ContentDiv>{props.children}</ContentDiv>
-        <GradientDiv flip={props.flip} />
+        <GradientDiv img={props.img} flip={props.flip} />
       </>
     ) : (
       <>
-        <GradientDiv flip={props.flip} />
+        <GradientDiv img={props.img} flip={props.flip} />
         <ContentDiv>{props.children}</ContentDiv>
       </>
     )}
