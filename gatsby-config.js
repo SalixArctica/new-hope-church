@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: "preview/newhope",
   siteMetadata: {
     title: `New Hope`,
     description: `A church based out of Mannford Oklahoma`,
@@ -40,11 +41,14 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-strapi`,
+      resolve: "gatsby-source-graphql",
       options: {
-        apiURL: `http://localhost:1337`,
-        queryLimit: 1000,
-        contentTypes: [`events`],
+        // Arbitrary name for the remote schema Query type
+        typeName: "strapi",
+        // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
+        fieldName: "strapi",
+        // Url to query from
+        url: "http://localhost:1337/graphql",
       },
     },
   ],

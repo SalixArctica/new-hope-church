@@ -13,6 +13,7 @@ const GradientDiv = styled.div`
   background-size: cover;
   background-position: center;
   margin-left: -5px;
+  min-height: 25rem;
 `
 
 const ContentDiv = styled.div`
@@ -20,6 +21,9 @@ const ContentDiv = styled.div`
   padding: 2rem 10vw;
   z-index: 1;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 const gradientContainer = props => (
