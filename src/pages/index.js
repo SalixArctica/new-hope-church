@@ -11,6 +11,7 @@ import Grid from "../components/grid"
 import Button, { LinkButton } from "../components/button"
 import Responsive from "../components/responsiveMargins"
 import GradientDiv from "../components/gradientDiv"
+import sortEvents from "../utils/sortEvents"
 
 const HeroContainer = styled.div`
   display: flex;
@@ -42,11 +43,16 @@ const IndexPage = () => {
             end
             title
             start
+            picture {
+              url
+            }
           }
         }
       }
     `
   )
+
+  const currentEvents = sortEvents(strapi.events)
 
   return (
     <Layout>
@@ -106,13 +112,24 @@ const IndexPage = () => {
           </Grid>
         </Responsive>
       </section>
-      <GradientDiv>
+      <GradientDiv
+        img={
+          currentEvents[0].picture
+            ? process.env.GATSBY_API_URL + currentEvents[0].picture.url
+            : null
+        }
+      >
         <div>
-          <h2>
-            Upcoming: {strapi.events[0].title} {strapi.events[0].start}
-          </h2>
+          <h2>Upcoming: {currentEvents[0].title} </h2>
+          <h3>
+            {currentEvents[0].start.getTime() === currentEvents[0].end.getTime()
+              ? currentEvents[0].start.toLocaleString()
+              : currentEvents[0].start.toLocaleString() +
+                "-" +
+                currentEvents[0].end.toLocaleString()}
+          </h3>
           <p style={{ margin: "1rem 1rem 2rem 1rem" }}>
-            {strapi.events[0].description}
+            {currentEvents[0].description}
           </p>
           <LinkButton to="/events">Event Calendar</LinkButton>
         </div>

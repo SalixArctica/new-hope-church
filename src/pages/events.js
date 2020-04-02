@@ -8,6 +8,7 @@ import Calendar from "../components/calendar"
 import Flickity from "react-flickity-component"
 import "flickity/css/flickity.css"
 import GradientDiv from "../components/gradientDiv"
+import sortEvents from "../utils/sortEvents"
 
 const CarouselCell = styled.div`
   display: flex;
@@ -44,11 +45,13 @@ const AboutPage = props => {
     `
   )
 
+  const currentEvents = sortEvents(events)
+
   return (
     <Layout>
       <SEO title="Events" />
       <Carousel flickityRef={c => setflickityRef(c)}>
-        {events.map(event => {
+        {currentEvents.map(event => {
           return (
             <CarouselCell>
               <GradientDiv
@@ -69,7 +72,7 @@ const AboutPage = props => {
       </Carousel>
       <div style={{ margin: "5rem" }}>
         <Calendar
-          events={events.map((event, index) => {
+          events={currentEvents.map((event, index) => {
             return { ...event, resource: index }
           })}
           flickityRef={flickityRef}
