@@ -23,6 +23,7 @@ const Carousel = styled(Flickity)`
 `
 
 const AboutPage = props => {
+  /*
   const [flickityRef, setflickityRef] = useState(null)
 
   const {
@@ -44,7 +45,6 @@ const AboutPage = props => {
       }
     `
   )
-
   const currentEvents = sortEvents(events)
 
   return (
@@ -80,6 +80,7 @@ const AboutPage = props => {
       </div>
     </Layout>
   )
+  */
 }
 
 export default AboutPage

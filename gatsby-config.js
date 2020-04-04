@@ -40,16 +40,6 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: "gatsby-source-graphql",
-      options: {
-        // Arbitrary name for the remote schema Query type
-        typeName: "strapi",
-        // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
-        fieldName: "strapi",
-        // Url to query from
-        url: "http://localhost:1337/graphql",
-      },
-    },
+    `gatsby-plugin-netlify-cms`,
   ],
 }

@@ -28,7 +28,9 @@ const HeroContainer = styled.div`
 `
 
 const IndexPage = () => {
+  /*
   const { strapi } = useStaticQuery(
+
     graphql`
       query GetLandingPageData {
         strapi {
@@ -160,6 +162,7 @@ const IndexPage = () => {
       </section>
     </Layout>
   )
+  */
 }
 
 export default IndexPage

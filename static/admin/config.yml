@@ -1,0 +1,16 @@
+backend:
+  name: github
+  repo: tankcaster/new-hope-church
+media_folder: static/assets
+public_folder: /assets
+collections:
+  - name: events
+    label: Events
+    folder: events
+    create: true
+    fields:
+      - { name: start, label: Start, widget: date }
+      - { name: end, label: End, widget: date }
+      - { name: title, label: Title }
+      - { name: description, label: Desription, widget: text }
+      - { name: image, label: Image, widget: image }
