@@ -20,49 +20,61 @@ const CarouselCell = styled.div`
 
 const Carousel = styled(Flickity)`
   height: 70vh;
+  &:nth-child(even) {
+    background-color: pink;
+  }
 `
 
 const AboutPage = props => {
-  /*
   const [flickityRef, setflickityRef] = useState(null)
+  /*
 
-  const {
-    strapi: { events },
-  } = useStaticQuery(
+  const data = useStaticQuery(
     graphql`
       query GetEvents {
-        strapi {
-          events {
-            description
-            end
-            title
-            start
-            picture {
-              url
+        allMarkdownRemark {
+          edges {
+            node {
+              frontmatter {
+                end
+                start
+                title
+                description
+                image
+              }
             }
           }
         }
       }
     `
   )
-  const currentEvents = sortEvents(events)
-
+  // const currentEvents = sortEvents(events)
+  const currentEvents = sortEvents(data.allMarkdownRemark.edges)
+*/
   return (
+    <></>
+    /*
     <Layout>
       <SEO title="Events" />
       <Carousel flickityRef={c => setflickityRef(c)}>
-        {currentEvents.map(event => {
+        {currentEvents.map((event, index) => {
           return (
             <CarouselCell>
               <GradientDiv
-                img={
-                  event.picture
-                    ? process.env.GATSBY_API_URL + event.picture.url
-                    : null
-                }
+                color={index % 2 == 0 ? "#bb80f2" : null}
+                //flip={index % 2 == 0}
+                img={event.image || null}
               >
                 <div>
-                  <h1>{event.title + " " + event.start}</h1>
+                  <h1>{event.title}</h1>
+                  <h4>
+                    {currentEvents[0].start.getTime() ===
+                    currentEvents[0].end.getTime()
+                      ? currentEvents[0].start.toDateString()
+                      : currentEvents[0].start.toDateString() +
+                        "-" +
+                        currentEvents[0].end.toDateString()}
+                  </h4>
                   <p>{event.description}</p>
                 </div>
               </GradientDiv>
@@ -79,8 +91,8 @@ const AboutPage = props => {
         />
       </div>
     </Layout>
+    */
   )
-  */
 }
 
 export default AboutPage

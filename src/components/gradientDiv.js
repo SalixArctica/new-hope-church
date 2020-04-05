@@ -7,7 +7,7 @@ const GradientDiv = styled.div`
   background-image: linear-gradient(
       ${props => (props.flip ? "to left" : "to right")},
       transparent,
-      rgba(235, 186, 52, 1)
+      ${props => props.color || "rgba(235, 186, 52, 1)"}
     ),
     url(${props => (props.img ? props.img : "/images/worshipping-guy.jpg")});
   background-size: cover;
@@ -18,26 +18,29 @@ const GradientDiv = styled.div`
 `
 
 const ContentDiv = styled.div`
-  background-color: rgb(235, 186, 52);
+  background-color: ${props => props.color || "rgba(235, 186, 52, 1)"};
   padding: 2rem 10vw;
   z-index: 1;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
+  & > * > p {
+    font-size: 1.4rem;
+  }
 `
 
 const gradientContainer = props => (
   <Grid style={{ height: "100%", width: "100%" }}>
     {props.flip ? (
       <>
-        <ContentDiv>{props.children}</ContentDiv>
-        <GradientDiv img={props.img} flip={props.flip} />
+        <ContentDiv color={props.color}>{props.children}</ContentDiv>
+        <GradientDiv color={props.color} img={props.img} flip={props.flip} />
       </>
     ) : (
       <>
-        <GradientDiv img={props.img} flip={props.flip} />
-        <ContentDiv>{props.children}</ContentDiv>
+        <GradientDiv color={props.color} img={props.img} flip={props.flip} />
+        <ContentDiv color={props.color}>{props.children}</ContentDiv>
       </>
     )}
   </Grid>

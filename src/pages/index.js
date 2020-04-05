@@ -28,34 +28,6 @@ const HeroContainer = styled.div`
 `
 
 const IndexPage = () => {
-  /*
-  const { strapi } = useStaticQuery(
-
-    graphql`
-      query GetLandingPageData {
-        strapi {
-          contactInfo {
-            Address
-            Email
-            Phone
-            Name
-          }
-          events {
-            description
-            end
-            title
-            start
-            picture {
-              url
-            }
-          }
-        }
-      }
-    `
-  )
-
-  const currentEvents = sortEvents(strapi.events)
-
   return (
     <Layout>
       <SEO title="Home" />
@@ -114,22 +86,17 @@ const IndexPage = () => {
           </Grid>
         </Responsive>
       </section>
-      <GradientDiv
-        img={
-          currentEvents[0].picture
-            ? process.env.GATSBY_API_URL + currentEvents[0].picture.url
-            : null
-        }
-      >
+      {/*
+      <GradientDiv img={currentEvents[0].image || null}>
         <div>
           <h2>Upcoming: {currentEvents[0].title} </h2>
-          <h3>
+          <h4>
             {currentEvents[0].start.getTime() === currentEvents[0].end.getTime()
-              ? currentEvents[0].start.toLocaleString()
-              : currentEvents[0].start.toLocaleString() +
+              ? currentEvents[0].start.toDateString()
+              : currentEvents[0].start.toDateString() +
                 "-" +
-                currentEvents[0].end.toLocaleString()}
-          </h3>
+                currentEvents[0].end.toDateString()}
+          </h4>
           <p style={{ margin: "1rem 1rem 2rem 1rem" }}>
             {currentEvents[0].description}
           </p>
@@ -153,16 +120,27 @@ const IndexPage = () => {
                 <FontAwesomeIcon icon="at" /> {strapi.contactInfo.Email}
               </p>
             </div>
+            
             <div>
               <h1 style={{ fontSize: "3rem" }}>Prayer request or question?</h1>
               <LinkButton style={{ color: "black" }}>Contact Us!</LinkButton>
             </div>
           </Grid>
+          
         </Responsive>
       </section>
+            */}
     </Layout>
   )
-  */
 }
-
+/*
+export const pageQuery = graphql`
+  query IndexPageTemplate {
+    markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
+      frontmatter {
+        
+    }
+  }
+`
+*/
 export default IndexPage

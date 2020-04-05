@@ -95,7 +95,7 @@ export default class Contact extends React.Component {
     data.append("data", JSON.stringify(info))
 
     return new Promise((resolve, reject) => {
-      fetch(`${process.env.GATSBY_API_URL}/contacts`, {
+      fetch(`/contacts`, {
         method: "POST",
         body: data,
       })
