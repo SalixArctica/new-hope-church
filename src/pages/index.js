@@ -27,7 +27,7 @@ const HeroContainer = styled.div`
   }
 `
 
-const IndexPage = () => {
+const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Home" />
@@ -73,10 +73,9 @@ const IndexPage = () => {
             <Grid style={{ fontSize: "1.3rem" }}>
               <div>
                 <h3>Sunday</h3>
-                <p>9:15 AM Breakfast</p>
-                <p>10:00 AM Sunday School</p>
-                <p>10:55 AM Worhip Service</p>
-                <p>6:00 PM Adult Bible Study</p>
+                {data.markdownRemark.frontmatter.times.sundayTimes.map(time => (
+                  <p>{time}</p>
+                ))}
               </div>
               <div>
                 <h3>Wednesday</h3>
@@ -133,14 +132,23 @@ const IndexPage = () => {
     </Layout>
   )
 }
-/*
+
 export const pageQuery = graphql`
-  query IndexPageTemplate {
-    markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
+  query IndexPage {
+    markdownRemark {
       frontmatter {
-        
+        contact {
+          address
+          phone
+          email
+        }
+        times {
+          sundayTimes
+          wednesdayTimes
+        }
+      }
     }
   }
 `
-*/
+
 export default IndexPage
