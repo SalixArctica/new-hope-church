@@ -46,7 +46,7 @@ export default ({ data }) => {
         {data.news.edges ? (
           data.news.edges.map(newsArticle => (
             <StyledLink
-              to={"/news/" + newsArticle.node.id}
+              to={"/news/" + newsArticle.node.frontmatter.title}
               style={{ margin: "1rem" }}
             >
               <h1>{newsArticle.node.frontmatter.title}</h1>

@@ -1,39 +1,32 @@
-exports.createPages = ({ actions, graphql }) => {
+const path = require("path")
+
+exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
 
-  return graphql(`
-    {
+  const results = await graphql(`
+    query {
       allMarkdownRemark(filter: { frontmatter: { type: { eq: "news" } } }) {
-      edges {
-        node {
-          id
-          excerpt
-          frontmatter {
-            title
-            published(fromNow: true)
-            image
+        edges {
+          node {
+            id
+            frontmatter {
+              title
+            }
           }
         }
       }
     }
-  `).then(news => {
-    if (result.errors) {
-      result.errors.forEach(e => console.error(e.toString()))
-      return Promise.reject(result.errors)
-    }
+  `)
 
-    const posts = result.data.allMarkdownRemark.edges
-
-    posts.forEach(edge => {
-      const id = edge.node.id
-      createPage({
-        path: "/news/" + edge.node.id,
-        component: path.resolve(`src/templates/newsArticle.js`),
-        // additional data can be passed via context
-        context: {
-          id,
-        },
-      })
+  results.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    const id = node.id
+    createPage({
+      path: "/news/" + node.frontmatter.title,
+      component: path.resolve(`src/templates/newsArticle.js`),
+      // additional data can be passed via context
+      context: {
+        id,
+      },
     })
   })
 }

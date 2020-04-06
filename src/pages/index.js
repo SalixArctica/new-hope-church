@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import styled from "styled-components"
 
 import formatPhoneNumber from "../utils/formatPhoneNumber"
@@ -135,9 +135,11 @@ const IndexPage = ({ data }) => {
       <section>
         <GradientDiv flip small img={news.frontmatter.image}>
           <div>
-            <h2>News: {news.frontmatter.title}</h2>
-            <p style={{ margin: "1rem 1rem 2rem 1rem" }}>{news.excerpt}</p>
-            <LinkButton to="/events">More News</LinkButton>
+            <Link to={"/news/" + news.frontmatter.title}>
+              <h2>News: {news.frontmatter.title}</h2>
+              <p style={{ margin: "1rem 1rem 2rem 1rem" }}>{news.excerpt}</p>
+            </Link>
+            <LinkButton to="/news">More News</LinkButton>
           </div>
         </GradientDiv>
       </section>
