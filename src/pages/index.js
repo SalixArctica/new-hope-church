@@ -87,7 +87,7 @@ const IndexPage = ({ data }) => {
           </Grid>
         </Responsive>
       </section>
-      <GradientDiv shrink="true" img={currentEvents[0].image || null}>
+      <GradientDiv small img={currentEvents[0].image || null}>
         <div>
           <h2>Upcoming: {currentEvents[0].title} </h2>
           <h4>
