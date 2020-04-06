@@ -103,7 +103,7 @@ const IndexPage = ({ data }) => {
           <LinkButton to="/events">Event Calendar</LinkButton>
         </div>
       </GradientDiv>
-      <section style={{ width: "100%", textAlign: "center" }}>
+      <section style={{ width: "100%", textAlign: "center", margin: "2rem 0" }}>
         <Responsive>
           <Grid>
             <div>
@@ -130,6 +130,15 @@ const IndexPage = ({ data }) => {
             </div>
           </Grid>
         </Responsive>
+      </section>
+      <section>
+        <GradientDiv flip small>
+          <div>
+            <h2>News: title</h2>
+            <p style={{ margin: "1rem 1rem 2rem 1rem" }}>words</p>
+            <LinkButton to="/events">More News</LinkButton>
+          </div>
+        </GradientDiv>
       </section>
     </Layout>
   )

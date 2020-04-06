@@ -14,6 +14,7 @@ const GradientDiv = styled.div`
   background-position: center;
   height: ${props => (props.small ? "auto" : "70vh")};
   min-height: 25rem;
+  margin-left: ${props => (props.flip ? "-5px" : "0px")};
 `
 
 const ContentDiv = styled.div`
