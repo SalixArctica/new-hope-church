@@ -1,10 +1,10 @@
 ---
 type: service-times
 sunday-times:
-  - "Breakfast 9:15AM"
-  - "Sunday School 10:00 AM"
-  - "Worship Service 10:55 AM"
-  - "Adult Bible Study 6:00 PM"
+  - "9:15AM Breakfast"
+  - "10:00 AM Sunday School"
+  - "10:55 AM Worship Service"
+  - "6:00 PM Adult Bible Study"
 wednesday-times:
   - '"6:30 Children'
   - youth
