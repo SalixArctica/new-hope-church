@@ -29,6 +29,7 @@ const HeroContainer = styled.div`
 
 const IndexPage = ({ data }) => {
   const currentEvents = sortEvents(data.allMarkdownRemark.edges)
+  const news = data.news.edges[0].node
 
   return (
     <Layout>
@@ -132,10 +133,10 @@ const IndexPage = ({ data }) => {
         </Responsive>
       </section>
       <section>
-        <GradientDiv flip small>
+        <GradientDiv flip small img={news.frontmatter.image}>
           <div>
-            <h2>News: title</h2>
-            <p style={{ margin: "1rem 1rem 2rem 1rem" }}>words</p>
+            <h2>News: {news.frontmatter.title}</h2>
+            <p style={{ margin: "1rem 1rem 2rem 1rem" }}>{news.excerpt}</p>
             <LinkButton to="/events">More News</LinkButton>
           </div>
         </GradientDiv>
@@ -173,6 +174,19 @@ export const pageQuery = graphql`
         address
         phone
         email
+      }
+    }
+    news: allMarkdownRemark(filter: { frontmatter: { type: { eq: "news" } } }) {
+      edges {
+        node {
+          id
+          excerpt
+          frontmatter {
+            title
+            published(fromNow: true)
+            image
+          }
+        }
       }
     }
   }

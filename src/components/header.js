@@ -84,7 +84,7 @@ const DonateButton = styled.input`
 `
 
 const StyledLink = styled(Link)`
-  text-decoration: none;
+  text-decoration: ${props => (props.current ? "underline" : "none")};
   color: inherit;
 `
 
@@ -121,11 +121,34 @@ class Navbar extends React.Component {
         <HamburgerDiv onClick={this.toggleNavbar}>|||</HamburgerDiv>
         <NavLinks open={this.state.navbarExtended}>
           <Styledli>
-            <StyledLink to="/about">About</StyledLink>
+            <StyledLink
+              current={
+                window ? window.location.pathname.includes("about") : false
+              }
+              to="/about"
+            >
+              About
+            </StyledLink>
           </Styledli>
-
           <Styledli>
-            <StyledLink to="/events">Events</StyledLink>
+            <StyledLink
+              current={
+                window ? window.location.pathname.includes("news") : false
+              }
+              to="/news"
+            >
+              News
+            </StyledLink>
+          </Styledli>
+          <Styledli>
+            <StyledLink
+              current={
+                window ? window.location.pathname.includes("events") : false
+              }
+              to="/events"
+            >
+              Events
+            </StyledLink>
           </Styledli>
           <Styledli>
             <form
@@ -142,7 +165,14 @@ class Navbar extends React.Component {
             </form>
           </Styledli>
           <Styledli>
-            <StyledLink to="/contact">Contact</StyledLink>
+            <StyledLink
+              current={
+                window ? window.location.pathname.includes("contact") : false
+              }
+              to="/contact"
+            >
+              Contact
+            </StyledLink>
           </Styledli>
         </NavLinks>
       </Nav>
