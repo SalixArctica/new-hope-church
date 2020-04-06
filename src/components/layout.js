@@ -17,6 +17,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 
 import Header from "./header"
+import Footer from "./footer"
 import "./layout.css"
 
 library.add(faAt, faPhone, faMapMarkerAlt)
@@ -36,7 +37,7 @@ const Layout = ({ children }) => {
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
       <main style={{ margin: "-5rem 0 0 0" }}>{children}</main>
-      <footer></footer>
+      <Footer />
     </>
   )
 }
