@@ -1,5 +1,4 @@
 import React from "react"
-import PropTypes from "prop-types"
 
 const IndexPagePreview = ({ entry, widgetFor, getAsset }) => {
   const data = entry.getIn(["data"]).toJS()
