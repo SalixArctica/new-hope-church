@@ -123,7 +123,9 @@ class Navbar extends React.Component {
           <Styledli>
             <StyledLink
               current={
-                window ? window.location.pathname.includes("about") : false
+                typeof window !== "undefined"
+                  ? window.location.pathname.includes("about")
+                  : false
               }
               to="/about"
             >
@@ -145,7 +147,9 @@ class Navbar extends React.Component {
           <Styledli>
             <StyledLink
               current={
-                window ? window.location.pathname.includes("events") : false
+                typeof window !== "undefined"
+                  ? window.location.pathname.includes("events")
+                  : false
               }
               to="/events"
             >
@@ -169,7 +173,9 @@ class Navbar extends React.Component {
           <Styledli>
             <StyledLink
               current={
-                window ? window.location.pathname.includes("contact") : false
+                typeof window !== "undefined"
+                  ? window.location.pathname.includes("contact")
+                  : false
               }
               to="/contact"
             >
