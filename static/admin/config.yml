@@ -16,6 +16,16 @@ collections:
       - { name: title, label: Title }
       - { name: description, label: Desription, widget: text }
       - { name: image, label: Image, widget: image }
+  - name: news
+    label: News
+    folder: src/md/news
+    create: true
+    fields:
+      - { label: "Type", name: "type", widget: "hidden", default: "news" }
+      - { label: "Published", name: "published", widget: "datetime" }
+      - { name: title, label: Title }
+      - { name: body, label: Body, widget: markdown }
+      - { name: image, label: Image, widget: image }
   - name: pages
     label: Pages
     editor:
@@ -32,42 +42,23 @@ collections:
               default: "about-page",
             }
           - { label: Body, name: body, widget: markdown }
-      - file: src/md/pages/index.md
-        label: Landing Page
-        name: index
+  - name: info
+    label: Info
+    editor:
+      preview: false
+    files:
+      - file: src/md/info/times.md
+        label: Service Times
+        name: service-times
         fields:
-          - {
-              label: "Type",
-              name: "type",
-              widget: "hidden",
-              default: "index-page",
-            }
-          - {
-              label: Service Times,
-              name: times,
-              widget: object,
-              fields:
-                [
-                  {
-                    label: Sunday Service Times,
-                    name: sundayTimes,
-                    widget: list,
-                  },
-                  {
-                    label: Wednesday Service Times,
-                    name: wednesdayTimes,
-                    widget: list,
-                  },
-                ],
-            }
-          - {
-              label: Contact Info,
-              name: contact,
-              widget: object,
-              fields:
-                [
-                  { label: Address, name: address, widget: string },
-                  { label: Phone, name: phone, widget: string },
-                  { label: Email, name: email, widget: string },
-                ],
-            }
+          - { label: Type, name: type, widget: hidden, default: service-times }
+          - { label: Sunday Times, name: sunday-times, widget: list }
+          - { label: Wednesday Times, name: wednesday-times, widget: list }
+      - file: src/md/info/contact.md
+        label: Contact Info
+        name: contact
+        fields:
+          - { label: Type, name: type, widget: hidden, default: contact-info }
+          - { label: Address, name: address, widget: string }
+          - { label: Phone, name: phone, widget: number }
+          - { label: Email, name: email, widget: string }

@@ -6,7 +6,7 @@ import ResponsiveMargins from "./responsiveMargins"
 const Footer = styled.footer`
   background: lightgray;
   font-size: 1.2rem;
-  margin-top: 2rem;
+  margin-top: 4rem;
 `
 
 export default () => {
