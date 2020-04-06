@@ -2,7 +2,7 @@ import React from "react"
 import SEO from "../components/seo"
 import { Formik } from "formik"
 import * as Yup from "yup"
-import styled, { keyframes } from "styled-components"
+import styled from "styled-components"
 
 import Layout from "../components/layout"
 import Hero from "../components/contactHero"
@@ -56,16 +56,6 @@ const Button = styled.button`
   }
 `
 
-const rotate = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-`
-
 const LoadingButton = props => (
   <Button
     red={props.error}
@@ -100,7 +90,7 @@ export default class Contact extends React.Component {
         body: data,
       })
         .then(res => {
-          if (res.status == 200) {
+          if (res.status === 200) {
             this.setState({ done: true, formStatus: "Sent" })
             resolve()
           } else {
@@ -135,6 +125,7 @@ export default class Contact extends React.Component {
               email: Yup.string()
                 .required("Required")
                 .matches(
+                  // eslint-disable-next-line
                   /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                   { message: "Please enter a valid Email" }
                 ),

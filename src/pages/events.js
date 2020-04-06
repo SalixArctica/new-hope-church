@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import styled from "styled-components"
 import SEO from "../components/seo"
 
@@ -37,7 +37,7 @@ const AboutPage = props => {
           return (
             <CarouselCell>
               <GradientDiv
-                color={index % 2 == 0 ? "#d0a9f5" : null}
+                color={index % 2 === 0 ? "#d0a9f5" : null}
                 //flip={index % 2 == 0}
                 img={event.image || null}
               >
