@@ -8,5 +8,5 @@ description: >-
   adipisicing nulla cupidatat velit minim qui ad nostrud labore laboris. Id anim
   reprehenderit qui labore aliquip minim. Veniam Lorem Lorem minim duis proident
   cupidatat aliqua adipisicing.
-image: /assets/warpseer.jpg
+image: /assets/2020_belgian-style-waffles_16700_600x600.jpg
 ---
