@@ -8,7 +8,10 @@ collections:
     label: Events
     folder: src/md/events
     create: true
+    editor:
+      preview: false
     fields:
+      - { label: "Type", name: "type", widget: "hidden", default: "event" }
       - { name: start, label: Start, widget: date }
       - { name: end, label: End, widget: date }
       - { name: title, label: Title }
@@ -16,14 +19,16 @@ collections:
       - { name: image, label: Image, widget: image }
   - name: pages
     label: Pages
+    editor:
+      preview: false
     files:
       - file: src/md/pages/index.md
         label: Landing Page
         name: index
         fields:
           - {
-              label: "Template Key",
-              name: "templateKey",
+              label: "Type",
+              name: "type",
               widget: "hidden",
               default: "index-page",
             }

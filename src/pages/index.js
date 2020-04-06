@@ -1,5 +1,5 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import styled from "styled-components"
 
 import formatPhoneNumber from "../utils/formatPhoneNumber"
@@ -28,6 +28,9 @@ const HeroContainer = styled.div`
 `
 
 const IndexPage = ({ data }) => {
+  const currentEvents = sortEvents(data.allMarkdownRemark.edges)
+  const indexPageInfo = data.markdownRemark.frontmatter
+
   return (
     <Layout>
       <SEO title="Home" />
@@ -66,14 +69,14 @@ const IndexPage = ({ data }) => {
             <div>
               <h1 style={{ fontSize: "3rem" }}>Come worship with us!</h1>
               <p style={{ fontSize: "1.2rem", margin: "1rem" }}>
-                <FontAwesomeIcon icon="map-marker-alt" /> 37684 West Highway 51,
-                Mannford, OK 74044
+                <FontAwesomeIcon icon="map-marker-alt" />{" "}
+                {indexPageInfo.contact.address}
               </p>
             </div>
             <Grid style={{ fontSize: "1.3rem" }}>
               <div>
                 <h3>Sunday</h3>
-                {data.markdownRemark.frontmatter.times.sundayTimes.map(time => (
+                {indexPageInfo.times.sundayTimes.map(time => (
                   <p>{time}</p>
                 ))}
               </div>
@@ -85,7 +88,6 @@ const IndexPage = ({ data }) => {
           </Grid>
         </Responsive>
       </section>
-      {/*
       <GradientDiv img={currentEvents[0].image || null}>
         <div>
           <h2>Upcoming: {currentEvents[0].title} </h2>
@@ -109,38 +111,50 @@ const IndexPage = ({ data }) => {
               <h2>Contact Info</h2>
               <p style={{ fontSize: "1.2rem" }}>
                 <FontAwesomeIcon icon="map-marker-alt" />{" "}
-                {strapi.contactInfo.Address}
+                {indexPageInfo.contact.address}
               </p>
               <p style={{ fontSize: "1.2rem" }}>
                 <FontAwesomeIcon icon="phone" />{" "}
-                {formatPhoneNumber(strapi.contactInfo.Phone)}
+                {formatPhoneNumber(indexPageInfo.contact.phone)}
               </p>
               <p style={{ fontSize: "1.2rem" }}>
-                <FontAwesomeIcon icon="at" /> {strapi.contactInfo.Email}
+                <FontAwesomeIcon icon="at" /> {indexPageInfo.contact.email}
               </p>
             </div>
-            
+
             <div>
               <h1 style={{ fontSize: "3rem" }}>Prayer request or question?</h1>
               <LinkButton style={{ color: "black" }}>Contact Us!</LinkButton>
             </div>
           </Grid>
-          
         </Responsive>
       </section>
-            */}
     </Layout>
   )
 }
 
 export const pageQuery = graphql`
   query IndexPage {
-    markdownRemark {
+    allMarkdownRemark(filter: { frontmatter: { type: { eq: "event" } } }) {
+      edges {
+        node {
+          id
+          frontmatter {
+            description
+            end
+            image
+            start
+            title
+          }
+        }
+      }
+    }
+    markdownRemark(frontmatter: { type: { eq: "index-page" } }) {
       frontmatter {
         contact {
           address
-          phone
           email
+          phone
         }
         times {
           sundayTimes

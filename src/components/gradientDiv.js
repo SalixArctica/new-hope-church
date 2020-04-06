@@ -13,7 +13,6 @@ const GradientDiv = styled.div`
   background-size: cover;
   background-position: center;
   height: 70vh;
-  margin-left: -5px;
   min-height: 25rem;
 `
 

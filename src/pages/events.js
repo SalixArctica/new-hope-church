@@ -27,33 +27,9 @@ const Carousel = styled(Flickity)`
 
 const AboutPage = props => {
   const [flickityRef, setflickityRef] = useState(null)
-  /*
+  const currentEvents = sortEvents(props.data.allMarkdownRemark.edges)
 
-  const data = useStaticQuery(
-    graphql`
-      query GetEvents {
-        allMarkdownRemark {
-          edges {
-            node {
-              frontmatter {
-                end
-                start
-                title
-                description
-                image
-              }
-            }
-          }
-        }
-      }
-    `
-  )
-  // const currentEvents = sortEvents(events)
-  const currentEvents = sortEvents(data.allMarkdownRemark.edges)
-*/
   return (
-    <></>
-    /*
     <Layout>
       <SEO title="Events" />
       <Carousel flickityRef={c => setflickityRef(c)}>
@@ -61,7 +37,7 @@ const AboutPage = props => {
           return (
             <CarouselCell>
               <GradientDiv
-                color={index % 2 == 0 ? "#bb80f2" : null}
+                color={index % 2 == 0 ? "#d0a9f5" : null}
                 //flip={index % 2 == 0}
                 img={event.image || null}
               >
@@ -91,8 +67,26 @@ const AboutPage = props => {
         />
       </div>
     </Layout>
-    */
   )
 }
+
+export const pageQuery = graphql`
+  query Events {
+    allMarkdownRemark(filter: { frontmatter: { type: { eq: "event" } } }) {
+      edges {
+        node {
+          id
+          frontmatter {
+            description
+            end
+            image
+            start
+            title
+          }
+        }
+      }
+    }
+  }
+`
 
 export default AboutPage

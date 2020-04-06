@@ -1,8 +1,8 @@
 ---
-start: 2020-04-15T19:25:28.522Z
-end: 2020-04-15T19:25:28.540Z
+start: 2020-04-16T19:25:28.522Z
+end: 2020-04-16T19:25:28.540Z
 type: event
-title: Waffle Wednesday
+title: Taco Thursday
 description: >-
   Enim culpa aute sit reprehenderit dolor ea veniam officia labore. Et quis
   adipisicing nulla cupidatat velit minim qui ad nostrud labore laboris. Id anim
