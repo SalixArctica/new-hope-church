@@ -133,7 +133,9 @@ class Navbar extends React.Component {
           <Styledli>
             <StyledLink
               current={
-                window ? window.location.pathname.includes("news") : false
+                typeof window !== "undefined"
+                  ? window.location.pathname.includes("news")
+                  : false
               }
               to="/news"
             >
