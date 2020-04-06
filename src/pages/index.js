@@ -29,7 +29,6 @@ const HeroContainer = styled.div`
 
 const IndexPage = ({ data }) => {
   const currentEvents = sortEvents(data.allMarkdownRemark.edges)
-  const indexPageInfo = data.markdownRemark.frontmatter
 
   return (
     <Layout>
@@ -70,13 +69,13 @@ const IndexPage = ({ data }) => {
               <h1 style={{ fontSize: "3rem" }}>Come worship with us!</h1>
               <p style={{ fontSize: "1.2rem", margin: "1rem" }}>
                 <FontAwesomeIcon icon="map-marker-alt" />{" "}
-                {indexPageInfo.contact.address}
+                {data.contactInfo.frontmatter.address}
               </p>
             </div>
             <Grid style={{ fontSize: "1.3rem" }}>
               <div>
                 <h3>Sunday</h3>
-                {indexPageInfo.times.sundayTimes.map(time => (
+                {data.serviceTimes.frontmatter.sunday_times.map(time => (
                   <p>{time}</p>
                 ))}
               </div>
@@ -88,7 +87,7 @@ const IndexPage = ({ data }) => {
           </Grid>
         </Responsive>
       </section>
-      <GradientDiv img={currentEvents[0].image || null}>
+      <GradientDiv shrink="true" img={currentEvents[0].image || null}>
         <div>
           <h2>Upcoming: {currentEvents[0].title} </h2>
           <h4>
@@ -111,14 +110,15 @@ const IndexPage = ({ data }) => {
               <h2>Contact Info</h2>
               <p style={{ fontSize: "1.2rem" }}>
                 <FontAwesomeIcon icon="map-marker-alt" />{" "}
-                {indexPageInfo.contact.address}
+                {data.contactInfo.frontmatter.address}
               </p>
               <p style={{ fontSize: "1.2rem" }}>
                 <FontAwesomeIcon icon="phone" />{" "}
-                {formatPhoneNumber(indexPageInfo.contact.phone)}
+                {formatPhoneNumber(data.contactInfo.frontmatter.phone)}
               </p>
               <p style={{ fontSize: "1.2rem" }}>
-                <FontAwesomeIcon icon="at" /> {indexPageInfo.contact.email}
+                <FontAwesomeIcon icon="at" />{" "}
+                {data.contactInfo.frontmatter.email}
               </p>
             </div>
 
@@ -151,17 +151,19 @@ export const pageQuery = graphql`
         }
       }
     }
-    markdownRemark(frontmatter: { type: { eq: "index-page" } }) {
+    serviceTimes: markdownRemark(
+      frontmatter: { type: { eq: "service-times" } }
+    ) {
       frontmatter {
-        contact {
-          address
-          email
-          phone
-        }
-        times {
-          sundayTimes
-          wednesdayTimes
-        }
+        sunday_times
+        wednesday_times
+      }
+    }
+    contactInfo: markdownRemark(frontmatter: { type: { eq: "contact" } }) {
+      frontmatter {
+        address
+        phone
+        email
       }
     }
   }

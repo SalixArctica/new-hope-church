@@ -64,6 +64,13 @@ module.exports = {
         name: `markdown-events`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/md/info`,
+        name: `markdown-info`,
+      },
+    },
     `gatsby-transformer-remark`,
   ],
 }

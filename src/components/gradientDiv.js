@@ -12,7 +12,7 @@ const GradientDiv = styled.div`
     url(${props => (props.img ? props.img : "/images/worshipping-guy.jpg")});
   background-size: cover;
   background-position: center;
-  height: 70vh;
+  height: ${props => (props.shrink ? "1000vh" : "60vh")};
   min-height: 25rem;
 `
 
@@ -34,7 +34,12 @@ const gradientContainer = props => (
     {props.flip ? (
       <>
         <ContentDiv color={props.color}>{props.children}</ContentDiv>
-        <GradientDiv color={props.color} img={props.img} flip={props.flip} />
+        <GradientDiv
+          shrink={props.shrink}
+          color={props.color}
+          img={props.img}
+          flip={props.flip}
+        />
       </>
     ) : (
       <>
