@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: tankcaster/new-hope-church
+  name: git-gateway
 media_folder: static/assets
 public_folder: /assets
 collections:
