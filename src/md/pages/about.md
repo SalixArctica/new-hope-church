@@ -1,11 +1,6 @@
 ---
 type: about-page
 ---
-
-New Hope loves the Lord God Almighty Father, Son, and Holy Spirit, and when you love the Lord you will love
-
-New Hope loves the Lord God Almighty Father, Son, and Holy Spirit, and when you love the Lord you will love people. New Hope loves the Lord, and loves people.
-
 ## Loving God = Care & Benevolence
 
 New Hope’s definition of Loving God is “A compassionate love for God that is lived out in our actions.” New Hope does this through acts of care and benevolent missions in our communities, Oklahoma, the United States and the world.
