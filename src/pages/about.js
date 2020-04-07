@@ -24,11 +24,11 @@ const MarkdownContainer = styled.div`
     font-size: 1.3rem;
   }
 
-  h2:nth-of-type(even) {
+  h2:nth-of-type(odd) {
     color: #d0a9f5;
   }
 
-  h2:nth-of-type(odd) {
+  h2:nth-of-type(even) {
     color: rgba(235, 186, 52, 1);
   }
 `

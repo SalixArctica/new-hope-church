@@ -38,7 +38,7 @@ const IndexPage = ({ data }) => {
       <HeroImage>
         <Grid style={{ height: "100%" }}>
           <HeroContainer>
-            <img src={logo} />
+            <img src={logo} style={{ maxWidth: "80vw" }} />
             <div>
               <form
                 action="https://www.paypal.com/cgi-bin/webscr"

@@ -19,6 +19,9 @@ import {
 import Header from "./header"
 import Footer from "./footer"
 import "./layout.css"
+import { config } from "@fortawesome/fontawesome-svg-core"
+import "@fortawesome/fontawesome-svg-core/styles.css"
+config.autoAddCss = false
 
 library.add(faAt, faPhone, faMapMarkerAlt)
 
@@ -35,6 +38,10 @@ const Layout = ({ children }) => {
 
   return (
     <>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+        rel="stylesheet"
+      ></link>
       <Header siteTitle={data.site.siteMetadata.title} />
       <main style={{ margin: "-5rem 0 0 0" }}>{children}</main>
       <Footer />

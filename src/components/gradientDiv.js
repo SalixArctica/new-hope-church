@@ -14,7 +14,15 @@ const GradientDiv = styled.div`
   background-position: center;
   height: ${props => (props.small ? "auto" : "70vh")};
   min-height: 25rem;
-  margin-left: ${props => (props.flip ? "-5px" : "0px")};
+
+  @media screen and (max-width: 850px) {
+    background-image: linear-gradient(
+        ${props => (props.flip ? "to bottom" : "to top")},
+        rgba(235, 186, 52, 1),
+        transparent
+      ),
+      url(${props => (props.img ? props.img : "/images/worshipping-guy.jpg")});
+  }
 `
 
 const ContentDiv = styled.div`
