@@ -9,6 +9,8 @@ New Hope’s definition of Loving God is “A compassionate love for God that is
 
 New Hope’s definition of Giving Hope is “Actively giving Hope through the Good News of God's love, Mercy, and grace.” New Hope actively presents the Gospel of Jesus Christ through outreach and missions continually bringing people to the Lord Jesus Christ for salvation and His abundant life in our communities, Oklahoma, the United States and the world.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KIrCOfDbL_E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Loving People = Discipleship
 
 New Hope’s definition of Loving People is “Loving people by actively demonstrating God's life changing power.” We can see discipleship at New Hope in so many people here that at one time were far from God, not being used of God, & not even considering being used of God. We see every Sunday changed people that were not going to church, then going to church, but not serving. Who now are going to church & serving God in many different capacities. Many of those who were not, are now actively Loving God by bringing others to Christ, then disciplining them in serving Christ and who are enjoying a loving relationship with the Lord Jesus Christ.
