@@ -6,5 +6,5 @@ sunday-times:
   - '10:55 AM Worship Service'
   - '6:00 PM Adult Bible Study'
 wednesday-times:
-  - '"6:30 Children, youth, and adult service"'
+  - '6:30 Children, youth, and adult service'
 ---
