@@ -12,6 +12,7 @@ import Button, { LinkButton } from "../components/button"
 import Responsive from "../components/responsiveMargins"
 import GradientDiv from "../components/gradientDiv"
 import sortEvents from "../utils/sortEvents"
+import logo from "../images/newHopeLogo.svg"
 
 const HeroContainer = styled.div`
   display: flex;
@@ -37,7 +38,7 @@ const IndexPage = ({ data }) => {
       <HeroImage>
         <Grid style={{ height: "100%" }}>
           <HeroContainer>
-            <h1 style={{ margin: "0", padding: "0" }}>New Hope Church</h1>
+            <img src={logo} />
             <div>
               <form
                 action="https://www.paypal.com/cgi-bin/webscr"
