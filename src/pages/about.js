@@ -40,10 +40,6 @@ const aboutPage = ({ data }) => (
       <Grid style={{ height: "100%" }}>
         <HeroContainer>
           <h1>About Us</h1>
-          <div>
-            <Button style={{ display: "inline" }}>Our Mission</Button>
-            <Button style={{ display: "inline" }}>Ministries</Button>
-          </div>
         </HeroContainer>
       </Grid>
     </HeroImage>

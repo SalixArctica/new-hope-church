@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: tankcaster/new-hope-church
+  name: git-gateway
 media_folder: static/assets
 public_folder: /assets
 collections:
@@ -53,8 +52,20 @@ collections:
         name: service-times
         fields:
           - { label: Type, name: type, widget: hidden, default: service-times }
-          - { label: Sunday Times, name: sunday-times, widget: list }
-          - { label: Wednesday Times, name: wednesday-times, widget: list }
+          - {
+              label: Sunday Times,
+              name: sunday-times,
+              widget: list,
+              collapsed: false,
+              field: { label: Time, name: time, widget: string },
+            }
+          - {
+              label: Wednesday Times,
+              name: wednesday-times,
+              widget: list,
+              collapsed: false,
+              field: { label: Time, name: time, widget: string },
+            }
       - file: src/md/info/contact.md
         label: Contact Info
         name: contact
