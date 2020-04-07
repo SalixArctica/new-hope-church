@@ -38,7 +38,7 @@ const IndexPage = ({ data }) => {
       <HeroImage>
         <Grid style={{ height: "100%" }}>
           <HeroContainer>
-            <img src={logo} style={{ maxWidth: "80vw" }} />
+            <img alt="New Hope Logo" src={logo} style={{ maxWidth: "80vw" }} />
             <div>
               <form
                 action="https://www.paypal.com/cgi-bin/webscr"
@@ -137,7 +137,9 @@ const IndexPage = ({ data }) => {
         <GradientDiv flip small img={news.frontmatter.image}>
           <div>
             <Link to={"/news/" + news.frontmatter.title}>
-              <h2>News: {news.frontmatter.title}</h2>
+              <h2>
+                News: <u>{news.frontmatter.title}</u>
+              </h2>
               <p style={{ margin: "1rem 1rem 2rem 1rem" }}>{news.excerpt}</p>
             </Link>
             <LinkButton to="/news">More News</LinkButton>
