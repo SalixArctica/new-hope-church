@@ -46,9 +46,12 @@ const IndexPage = ({ data }) => {
                 target="_top"
                 id="donate"
               >
-                <input type="hidden" name="cmd" value="_donations" />
-                <input type="hidden" name="business" value="DGZWVGNU55NSN" />
-                <input type="hidden" name="currency_code" value="USD" />
+                <input type="hidden" name="cmd" value="_s-xclick" />
+                <input
+                  type="hidden"
+                  name="hosted_button_id"
+                  value="CCJJE4Q2XANRY"
+                />
                 <Button
                   type="submit"
                   value="Submit"

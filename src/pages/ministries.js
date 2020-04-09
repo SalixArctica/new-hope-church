@@ -32,13 +32,13 @@ const MarkdownContainer = styled.div`
   }
 `
 
-const aboutPage = ({ data }) => (
+const ministriesPage = ({ data }) => (
   <Layout>
-    <SEO title="About" />
+    <SEO title="Ministries" />
     <HeroImage>
       <Grid style={{ height: "100%" }}>
         <HeroContainer>
-          <h1>About Us</h1>
+          <h1>Our Ministries</h1>
         </HeroContainer>
       </Grid>
     </HeroImage>
@@ -51,11 +51,11 @@ const aboutPage = ({ data }) => (
 )
 
 export const pageQuery = graphql`
-  query AboutPage {
-    markdownRemark(frontmatter: { type: { eq: "about-page" } }) {
+  query ministries {
+    markdownRemark(frontmatter: { type: { eq: "ministries-page" } }) {
       html
     }
   }
 `
 
-export default aboutPage
+export default ministriesPage

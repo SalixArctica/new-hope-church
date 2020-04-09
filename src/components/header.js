@@ -157,6 +157,18 @@ class Navbar extends React.Component {
             </StyledLink>
           </Styledli>
           <Styledli>
+            <StyledLink
+              current={
+                typeof window !== "undefined"
+                  ? window.location.pathname.includes("ministries")
+                  : false
+              }
+              to="/ministries"
+            >
+              Ministries
+            </StyledLink>
+          </Styledli>
+          <Styledli>
             <form
               action="https://www.paypal.com/cgi-bin/webscr"
               method="post"
@@ -164,8 +176,12 @@ class Navbar extends React.Component {
               id="donate"
               style={{ display: "inline" }}
             >
-              <input type="hidden" name="cmd" value="_donations" />
-              <input type="hidden" name="business" value="DGZWVGNU55NSN" />
+              <input type="hidden" name="cmd" value="_s-xclick" />
+              <input
+                type="hidden"
+                name="hosted_button_id"
+                value="CCJJE4Q2XANRY"
+              />
               <input type="hidden" name="currency_code" value="USD" />
               <DonateButton type="submit" value="Donate" />
             </form>

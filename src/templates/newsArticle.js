@@ -1,8 +1,6 @@
-import React, { useState } from "react"
+import React from "react"
 import { graphql } from "gatsby"
-import styled from "styled-components"
 import SEO from "../components/seo"
-import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import "flickity/css/flickity.css"
@@ -14,7 +12,11 @@ export default ({ data: { markdownRemark: article } }) => {
     <Layout>
       <SEO title={article.frontmatter.title} />
       <ResponsiveMargins>
-        <img style={{ width: "100%" }} src={article.frontmatter.image} />
+        <img
+          style={{ width: "100%" }}
+          src={article.frontmatter.image}
+          alt={article.frontmatter.title}
+        />
         <Grid>
           <h1>{article.frontmatter.title}</h1>
           <h3 style={{ color: "grey", textAlign: "right", marginTop: "2rem" }}>

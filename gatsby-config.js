@@ -60,6 +60,13 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        path: `${__dirname}/src/md/staff`,
+        name: `markdown-staff`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         path: `${__dirname}/src/md/events`,
         name: `markdown-events`,
       },

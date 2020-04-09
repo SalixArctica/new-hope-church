@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: tankcaster/new-hope-church
 media_folder: static/assets
 public_folder: /assets
 collections:
@@ -16,6 +17,19 @@ collections:
       - { name: title, label: Title }
       - { name: description, label: Desription, widget: text }
       - { name: image, label: Image, widget: image }
+  - name: staff
+    label: Staff
+    folder: src/md/staff
+    create: true
+    editor:
+      preview: false
+    fields:
+      - { label: Type, name: type, widget: hidden, default: staff }
+      - { name: name, label: Name, widget: string }
+      - { name: position, label: Position, widget: string }
+      - { name: email, label: Email, widget: string }
+      - { name: image, label: Image, widget: image, required: false }
+
   - name: news
     label: News
     folder: src/md/news
@@ -40,6 +54,17 @@ collections:
               name: "type",
               widget: "hidden",
               default: "about-page",
+            }
+          - { label: Body, name: body, widget: markdown }
+      - file: src/md/pages/ministries.md
+        label: Ministries Page
+        name: ministries
+        fields:
+          - {
+              label: "Type",
+              name: "type",
+              widget: "hidden",
+              default: "ministries-page",
             }
           - { label: Body, name: body, widget: markdown }
   - name: info

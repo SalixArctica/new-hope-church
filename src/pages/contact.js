@@ -7,6 +7,8 @@ import styled from "styled-components"
 import Layout from "../components/layout"
 import Hero from "../components/contactHero"
 import ResponsiveMargins from "../components/responsiveMargins"
+import StaffCard from "../components/staffCard"
+import Grid from "../components/grid"
 
 const HeroContainer = styled.div`
   display: flex;
@@ -193,8 +195,34 @@ export default class Contact extends React.Component {
               </form>
             )}
           </Formik>
+          <h1>Staff</h1>
+          <Grid col="3">
+            {this.props.data.allMarkdownRemark.edges.map(
+              ({ node: { frontmatter: person } }) => (
+                <StaffCard person={person} />
+              )
+            )}
+          </Grid>
         </ResponsiveMargins>
       </Layout>
     )
   }
 }
+
+export const pageQuery = graphql`
+  query Staff {
+    allMarkdownRemark(filter: { frontmatter: { type: { eq: "staff" } } }) {
+      edges {
+        node {
+          id
+          frontmatter {
+            name
+            position
+            email
+            image
+          }
+        }
+      }
+    }
+  }
+`
