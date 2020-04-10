@@ -36,10 +36,12 @@ const ContentDiv = styled.div`
   & > * > p {
     font-size: 1.4rem;
   }
+  border: 0;
+  margin: 0;
 `
 
 const gradientContainer = props => (
-  <Grid style={{ height: "100%", width: "100%" }}>
+  <Grid style={{ height: "100%", width: "100%", backgroundColor: props.color }}>
     {props.flip ? (
       <>
         <ContentDiv color={props.color}>{props.children}</ContentDiv>
