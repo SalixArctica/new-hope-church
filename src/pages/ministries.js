@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import HeroImage from "../components/aboutHero"
+import HeroImage from "../components/ministriesHero"
 import Grid from "../components/grid"
 import ResponsiveMargins from "../components/responsiveMargins"
 

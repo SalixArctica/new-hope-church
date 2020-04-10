@@ -195,7 +195,9 @@ export default class Contact extends React.Component {
               </form>
             )}
           </Formik>
-          <h1>Staff</h1>
+          <h1 style={{ width: "100%", borderBottom: "5px solid black" }}>
+            Staff
+          </h1>
           <Grid col="3">
             {this.props.data.allMarkdownRemark.edges.map(
               ({ node: { frontmatter: person } }) => (
