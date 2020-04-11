@@ -128,7 +128,9 @@ const IndexPage = ({ data }) => {
             </div>
 
             <div>
-              <h1 style={{ fontSize: "3rem" }}>Prayer request or question?</h1>
+              <h1 style={{ fontSize: "3rem" }}>
+                Prayer requests or questions?
+              </h1>
               <LinkButton to="/contact" style={{ color: "black" }}>
                 Contact Us!
               </LinkButton>

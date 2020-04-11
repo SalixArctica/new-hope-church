@@ -18,7 +18,7 @@ const GradientDiv = styled.div`
   @media screen and (max-width: 850px) {
     background-image: linear-gradient(
         ${props => (props.flip ? "to bottom" : "to top")},
-        rgba(235, 186, 52, 1),
+        ${props => (props.color ? props.color : "rgba(235, 186, 52, 1)")},
         transparent
       ),
       url(${props => (props.img ? props.img : "/images/worshipping-guy.jpg")});

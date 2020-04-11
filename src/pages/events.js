@@ -19,9 +19,17 @@ const CarouselCell = styled.div`
 `
 
 const Carousel = styled(Flickity)`
-  height: 70vh;
+  min-height: 70vh;
   &:nth-child(even) {
     background-color: pink;
+  }
+`
+
+const CalendarDiv = styled.div`
+  margin: 1rem 3rem;
+
+  @media only screen and (max-width: 768px) {
+    margin: 1rem 0rem;
   }
 `
 
@@ -58,14 +66,14 @@ const AboutPage = props => {
           )
         })}
       </Carousel>
-      <div style={{ margin: "5rem" }}>
+      <CalendarDiv>
         <Calendar
           events={currentEvents.map((event, index) => {
             return { ...event, resource: index }
           })}
           flickityRef={flickityRef}
         />
-      </div>
+      </CalendarDiv>
     </Layout>
   )
 }
