@@ -144,6 +144,7 @@ class Navbar extends React.Component {
               News
             </StyledLink>
           </Styledli>
+          {/*
           <Styledli>
             <StyledLink
               current={
@@ -168,6 +169,7 @@ class Navbar extends React.Component {
               Ministries
             </StyledLink>
           </Styledli>
+          */}
           <Styledli>
             <form
               action="https://www.paypal.com/cgi-bin/webscr"
@@ -186,6 +188,7 @@ class Navbar extends React.Component {
               <DonateButton type="submit" value="Donate" />
             </form>
           </Styledli>
+          {/*
           <Styledli>
             <StyledLink
               current={
@@ -198,6 +201,7 @@ class Navbar extends React.Component {
               Contact
             </StyledLink>
           </Styledli>
+            */}
         </NavLinks>
       </Nav>
     )

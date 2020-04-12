@@ -92,20 +92,15 @@ const IndexPage = ({ data }) => {
           </Grid>
         </Responsive>
       </section>
-      <GradientDiv small img={currentEvents[0].image || null}>
+      <GradientDiv small img={news.frontmatter.image}>
         <div>
-          <h2>Upcoming: {currentEvents[0].title} </h2>
-          <h4>
-            {currentEvents[0].start.getTime() === currentEvents[0].end.getTime()
-              ? currentEvents[0].start.toDateString()
-              : currentEvents[0].start.toDateString() +
-                "-" +
-                currentEvents[0].end.toDateString()}
-          </h4>
-          <p style={{ margin: "1rem 1rem 2rem 1rem" }}>
-            {currentEvents[0].description}
-          </p>
-          <LinkButton to="/events">Event Calendar</LinkButton>
+          <Link to={"/news/" + news.frontmatter.title}>
+            <h2>
+              News: <u>{news.frontmatter.title}</u>
+            </h2>
+            <p style={{ margin: "1rem 1rem 2rem 1rem" }}>{news.excerpt}</p>
+          </Link>
+          <LinkButton to="/news">More News</LinkButton>
         </div>
       </GradientDiv>
       <section style={{ width: "100%", textAlign: "center", margin: "2rem 0" }}>
@@ -126,7 +121,24 @@ const IndexPage = ({ data }) => {
                 {data.contactInfo.frontmatter.email}
               </p>
             </div>
-
+            {/*
+            <GradientDiv small img={currentEvents[0].image || null}>
+              <div>
+                <h2>Upcoming: {currentEvents[0].title} </h2>
+                <h4>
+                  {currentEvents[0].start.getTime() === currentEvents[0].end.getTime()
+                    ? currentEvents[0].start.toDateString()
+                    : currentEvents[0].start.toDateString() +
+                    "-" +
+                    currentEvents[0].end.toDateString()}
+                </h4>
+                <p style={{ margin: "1rem 1rem 2rem 1rem" }}>
+                  {currentEvents[0].description}
+                </p>
+                <LinkButton to="/events">Event Calendar</LinkButton>
+              </div>
+            </GradientDiv>
+                  */}
             <div>
               <h1 style={{ fontSize: "3rem" }}>
                 Prayer requests or questions?
@@ -138,19 +150,7 @@ const IndexPage = ({ data }) => {
           </Grid>
         </Responsive>
       </section>
-      <section>
-        <GradientDiv flip small img={news.frontmatter.image}>
-          <div>
-            <Link to={"/news/" + news.frontmatter.title}>
-              <h2>
-                News: <u>{news.frontmatter.title}</u>
-              </h2>
-              <p style={{ margin: "1rem 1rem 2rem 1rem" }}>{news.excerpt}</p>
-            </Link>
-            <LinkButton to="/news">More News</LinkButton>
-          </div>
-        </GradientDiv>
-      </section>
+      <section></section>
     </Layout>
   )
 }
