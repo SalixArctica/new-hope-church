@@ -1,8 +1,7 @@
 import React from "react"
 import SEO from "../components/seo"
-import { Formik } from "formik"
-import * as Yup from "yup"
 import styled from "styled-components"
+import { graphql } from 'gatsby'
 
 import Layout from "../components/layout"
 import Hero from "../components/contactHero"
@@ -20,59 +19,6 @@ const HeroContainer = styled.div`
   font-size: 3rem;
 `
 
-const StyledLabel = styled.label`
-  display: block;
-  margin: 1rem 0;
-`
-const StyledInput = styled.input`
-  display: block;
-  font-size: 2rem;
-  width: ${props => props.width + "rem"};
-`
-
-const StyledTextarea = styled.textarea`
-  display: block;
-  height: 10rem;
-  width: 100%;
-  resize: none;
-  font-size: 2rem;
-`
-
-const Button = styled.button`
-  padding: 0.5rem 1rem;
-  transition: all 0.5s ease-in-out;
-  min-width: 10rem;
-  border-radius: 0.5rem;
-  box-shadow: none;
-  background: ${props => (props.done ? "green" : props.error ? "red" : "teal")};
-  color: white;
-  border: none;
-  transition: all 0.2s ease-in-out;
-  cursor: ${props => (props.loading || props.done ? "default" : "pointer")};
-  font-size: 2rem;
-  margin: 1rem;
-
-  &:hover {
-    box-shadow: ${props =>
-      props.loading || props.done ? "none" : "2px 2px 5px slategrey"};
-  }
-`
-
-const LoadingButton = props => (
-  <Button
-    red={props.error}
-    disabled={props.loading || props.done || props.error}
-    {...props}
-  >
-    {props.error
-      ? "Error"
-      : props.loading
-      ? "Sending..."
-      : props.done
-      ? props.formStatus || "Done"
-      : props.children}
-  </Button>
-)
 
 export default class Contact extends React.Component {
   constructor(props) {

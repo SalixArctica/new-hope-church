@@ -92,18 +92,18 @@ const IndexPage = ({ data }) => {
           </Grid>
         </Responsive>
       </section>
-      <GradientDiv small img={currentEvents[0].image || null}>
+      <GradientDiv small img={currentEvents[0] ? currentEvents[0].image : null}>
         <div>
-          <h2>Upcoming: {currentEvents[0].title} </h2>
+          <h2>Upcoming: {currentEvents[0] ? currentEvents[0].title : null} </h2>
           <h4>
-            {currentEvents[0].start.getTime() === currentEvents[0].end.getTime()
+            {currentEvents[0] ? currentEvents[0].start.getTime() === currentEvents[0].end.getTime()
               ? currentEvents[0].start.toDateString()
               : currentEvents[0].start.toDateString() +
                 "-" +
-                currentEvents[0].end.toDateString()}
+                currentEvents[0].end.toDateString() : null}
           </h4>
           <p style={{ margin: "1rem 1rem 2rem 1rem" }}>
-            {currentEvents[0].description}
+            {currentEvents[0] ? currentEvents[0].description : null}
           </p>
           <LinkButton to="/events">Event Calendar</LinkButton>
         </div>

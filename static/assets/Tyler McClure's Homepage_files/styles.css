@@ -1,0 +1,43 @@
+
+#bgblack{
+    background-color: black;
+    color: white;
+}
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+    flex: auto;
+}
+article{
+    flex: 2;
+}
+aside{
+    flex: 1;
+}
+#whitelink{
+    color: white;
+    text-decoration: underline;
+}
+.visible{
+    display:block;
+}
+.invisible{
+    display:none;
+}
+.imagecenter{
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+.explosioncontainer {
+    flex-wrap:wrap;
+}
+.rightside{
+    position:absolute;
+    right:0;
+}
