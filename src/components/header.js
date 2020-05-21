@@ -116,7 +116,7 @@ class Navbar extends React.Component {
     return (
       <Nav open={this.state.navbarExtended} scrolled={this.state.scrolledDown}>
         <Title>
-          <StyledLink to="/">New Hope Church</StyledLink>
+          <StyledLink to="/">New Hope Mannford</StyledLink>
         </Title>
         <HamburgerDiv onClick={this.toggleNavbar}>|||</HamburgerDiv>
         <NavLinks open={this.state.navbarExtended}>
