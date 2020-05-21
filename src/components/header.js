@@ -157,18 +157,6 @@ class Navbar extends React.Component {
             </StyledLink>
           </Styledli>
           <Styledli>
-            <StyledLink
-              current={
-                typeof window !== "undefined"
-                  ? window.location.pathname.includes("ministries")
-                  : false
-              }
-              to="/ministries"
-            >
-              Ministries
-            </StyledLink>
-          </Styledli>
-          <Styledli>
             <form
               action="https://www.paypal.com/cgi-bin/webscr"
               method="post"
